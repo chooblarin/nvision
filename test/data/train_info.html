@@ -1,0 +1,352 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="robots" content="index,follow">
+<meta name="description" content="">
+<meta name="keywords" content="">
+
+<title>信越エリアの運行情報：JR東日本</title>
+
+<!-- 共有CSS -->
+<link rel="SHORTCUT ICON" href="http://www.jreast.co.jp/favicon.ico">
+<link rel="stylesheet" type="text/css" href="/general/css/import.css">
+
+<!-- 個別CSS -->
+<link rel="stylesheet" type="text/css" href="/train_info/css/traininfo.css">
+
+<!-- 共有JS -->
+<script type="text/javascript" src="/general/js/jquery.js"></script>
+<script type="text/javascript" src="/general/js/common.js"></script>
+
+<!-- 個別JS -->
+<script type="text/javascript" src="/train_info/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="/train_info/js/jquery.keep-position.js"></script>
+<script type="text/javascript" src="/general/js/heightline.js"></script>
+<script type="text/javascript" src="/train_info/js/coomon.js"></script>
+
+</head>
+
+<body class="ctgRailway sm02_05">
+
+<!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-T6RWTC"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-T6RWTC');</script>
+<!-- End Google Tag Manager -->
+<noscript>
+<div class="noscriptBox">
+<p>当ページでは、JavaScriptを使用しております。<br>
+ご使用のブラウザのJavaScript機能を有効にして、ページを再読込してください。</p>
+</div>
+</noscript>
+
+<!-- スマートフォン振り分け -->
+<script type="text/javascript" src="/train_info/js/traininfo_smartphone.js"></script>
+<!-- /スマートフォン振り分け -->
+
+<!-- JR東日本共通ヘッダー -->
+<script type="text/javascript" src="/general/js/header_utf8.js"></script>
+<!-- /JR東日本共通ヘッダー -->
+
+<!-- パンくずナビ -->
+<div id="breadClumb">
+<ol class="baseContainer">
+<li><a href="http://www.jreast.co.jp/">JR東日本トップ</a></li>
+<li><a href="http://www.jreast.co.jp/railway/">駅・鉄道／旅行・観光</a></li>
+<li><a href="/train_info/service.aspx">運行情報・運休情報</a></li>
+<li>信越エリアの運行情報</li>
+</ol>
+<!-- /#breadClumb --></div>
+
+
+<div id="contents" class="baseContainer">
+
+<!-- メインコンテンツ -->
+<div id="main" class="mainCol">
+
+<h1 class="ptitle"><img src="/train_info/img/ptitle05.png" width="233" height="24" alt="信越エリアの運行情報"></h1>
+
+<div id="wrapper">
+<div class="g_navi clearfix">
+<div class="g_navi01 clearfix">
+<div class="g_navil">
+<h2><img src="/train_info/img/g_navitit01.png" width="72" height="16" alt="運行情報"></h2>
+<ul class="clearfix">
+  <li title="関東エリア"><a href="/train_info/kanto.aspx"><img src="/train_info/img/g_navibtn01.png" width="79" height="45" alt="関東エリア" class="btn"></a></li>
+  <li title="東北エリア"><a href="/train_info/tohoku.aspx"><img src="/train_info/img/g_navibtn02.png" width="79" height="45" alt="東北エリア" class="btn"></a></li>
+  <li title="信越エリア"><a href="/train_info/shinetsu.aspx"><img src="/train_info/img/g_navibtn03_on.png" width="79" height="45" alt="信越エリア"></a></li>
+  <li title="新幹線"><a href="/train_info/shinkansen.aspx"><img src="/train_info/img/g_navibtn04.png" width="79" height="45" alt="新幹線" class="btn"></a></li>
+  <li title="在来線特急等" class="last"><a href="/train_info/chyokyori.aspx"><img src="/train_info/img/g_navibtn05.png" width="79" height="45" alt="在来線特急等" class="btn"></a></li>
+</ul>
+</div>
+<div class="g_navir">
+<h2><img src="/train_info/img/g_navitit02.png" width="72" height="16" alt="運休情報"></h2>
+<ul class="clearfix">
+  <li title="新幹線"><a href="/shinkansen_info/"><img src="/train_info/img/g_navibtn06.png" width="78" height="45" alt="新幹線" class="btn" ></a></li>
+  <li title="在来線特急等"><a href="/zairaitokkyu_info/"><img src="/train_info/img/g_navibtn07.png" width="78" height="45" alt="在来線特急等" class="btn" ></a></li>
+</ul>
+</div>
+</div>
+
+<div class="g_navi02">
+<ul>
+  <li title="遅延証明書"><a href="/delay_certificate/"><img src="/train_info/img/g_navibtn08.png" width="79" height="65" alt="遅延証明書" class="btn"></a></li>
+</ul>
+</div>
+<!-- /.g_navi --></div>
+
+<div class="infobox">
+<p><span>4時～翌2時</span>の間に、JR東日本管内で<span>30分以上の遅れ</span>が発生または見込まれる場合、「遅延」とご案内しています。なお、BRTの運行情報につきましては、長時間運転を見合わせる場合に限りお知らせいたします。<p><span>関東・東北・信越エリアにおける特急列車の運行情報・運休情報は「在来線特急等」よりご確認ください。</span></p>
+</div>
+
+<div class="top_txlink">
+<ul>
+  <li class="que"><a href="http://jreast.okbiz.okwave.jp/EokpControl?&amp;event=CE0002&amp;cid=10305" target="_blank" title="別ウィンドウが開きます" class="blankLink">運行情報についてよくいただくご質問</a></li>
+  <li class="att"><a href="http://www.jreast.co.jp/suspend/">工事に伴う運転変更のお知らせ</a></li>
+</ul>
+</div>
+
+<div class="main_con02">
+<div class="table_titarea clearfix">
+<div class="left_subtit">
+
+<h2>画面表示日時：2017年8月17日 22時24分</h2>
+</div>
+<div class="right_upbtn">
+
+<ul>
+  <li title="※この画面は自動的に更新されません"><img src="/train_info/img/text_img01.png" width="181" height="24" alt="※この画面は自動的に更新されません"></li>
+  <li title="ページ更新" class="btn"><img src="/train_info/img/btn_up.png" width="103" height="24" alt="ページ更新" class="btn"></li>
+</ul>
+
+</div>
+</div>
+
+<div class="table_access">
+
+<table border="0" cellspacing="0" cellpadding="0">
+  <tbody>
+    
+    <tr>
+      
+      <th class="text-tit-xlarge">羽越本線</th>
+      <td class="acess_i"><img src="/train_info/img/icon_acess03-01.png" width="160" height="40" alt="平常運転"></td>
+      <td colspan="2">&nbsp;</td>
+          
+    </tr>
+    
+
+    <tr>
+      
+      <th class="text-tit-xlarge">信越本線</th>
+      <td class="acess_i"><img src="/train_info/img/icon_acess03-01.png" width="160" height="40" alt="平常運転"></td>
+      <td colspan="2">&nbsp;</td>
+          
+    </tr>
+    
+
+    <tr>
+      
+      <th class="text-tit-xlarge">上越線</th>
+      <td class="acess_i"><img src="/train_info/img/icon_acess03-01.png" width="160" height="40" alt="平常運転"></td>
+      <td colspan="2">&nbsp;</td>
+          
+    </tr>
+    
+
+    <tr>
+      
+      <th class="text-tit-xlarge">篠ノ井線</th>
+      <td class="acess_i"><img src="/train_info/img/icon_acess03-01.png" width="160" height="40" alt="平常運転"></td>
+      <td colspan="2">&nbsp;</td>
+          
+    </tr>
+    
+
+    <tr>
+      
+      <th class="text-tit-xlarge">中央本線</th>
+      <td class="acess_i"><img src="/train_info/img/icon_acess03-01.png" width="160" height="40" alt="平常運転"></td>
+      <td colspan="2">&nbsp;</td>
+          
+    </tr>
+    
+
+    <tr>
+      
+      <th class="text-tit-xlarge">白新線</th>
+      <td class="acess_i"><img src="/train_info/img/icon_acess03-01.png" width="160" height="40" alt="平常運転"></td>
+      <td colspan="2">&nbsp;</td>
+          
+    </tr>
+    
+
+    <tr>
+      
+      <th class="text-tit-xlarge">磐越西線</th>
+      <td class="acess_i"><img src="/train_info/img/icon_acess03-01.png" width="160" height="40" alt="平常運転"></td>
+      <td colspan="2">&nbsp;</td>
+          
+    </tr>
+    
+
+    <tr>
+      
+      <th rowspan="2" class="text-tit-xlarge">飯山線</th>
+      <td rowspan="2" class="acess_i"><img src="/train_info/img/icon_acess02-01.png" width="160" height="40" alt="運転見合わせ"></td>
+      <td class="time02">2017年8月17日21時17分 配信</td>
+      <td class="hisory"><a href="/train_info/history.aspx?MSGID=404974&amp;GID=5&amp;TIME=201708172117">更新履歴</a></td>
+          
+    </tr>
+    <tr>
+	<td colspan="2" class="cause">飯山線は、大雨の影響で、豊野～飯山駅間の上下線で運転を見合わせています。</td>
+</tr>
+
+
+    <tr>
+      
+      <th class="text-tit-xlarge">越後線</th>
+      <td class="acess_i"><img src="/train_info/img/icon_acess03-01.png" width="160" height="40" alt="平常運転"></td>
+      <td colspan="2">&nbsp;</td>
+          
+    </tr>
+    
+
+    <tr>
+      
+      <th class="text-tit-xlarge">大糸線</th>
+      <td class="acess_i"><img src="/train_info/img/icon_acess03-01.png" width="160" height="40" alt="平常運転"></td>
+      <td colspan="2">&nbsp;</td>
+          
+    </tr>
+    
+
+    <tr>
+      
+      <th class="text-tit-xlarge">小海線</th>
+      <td class="acess_i"><img src="/train_info/img/icon_acess03-01.png" width="160" height="40" alt="平常運転"></td>
+      <td colspan="2">&nbsp;</td>
+          
+    </tr>
+    
+
+    <tr>
+      
+      <th class="text-tit-xlarge">只見線</th>
+      <td class="acess_i"><img src="/train_info/img/icon_acess03-01.png" width="160" height="40" alt="平常運転"></td>
+      <td colspan="2">&nbsp;</td>
+          
+    </tr>
+    
+
+    <tr>
+      
+      <th class="text-tit-xlarge">弥彦線</th>
+      <td class="acess_i"><img src="/train_info/img/icon_acess03-01.png" width="160" height="40" alt="平常運転"></td>
+      <td colspan="2">&nbsp;</td>
+          
+    </tr>
+    
+
+    <tr>
+      
+      <th class="text-tit-xlarge">米坂線</th>
+      <td class="acess_i"><img src="/train_info/img/icon_acess03-01.png" width="160" height="40" alt="平常運転"></td>
+      <td colspan="2">&nbsp;</td>
+          
+    </tr>
+    
+
+    </tbody>
+</table>
+
+
+<div class="att">
+<p>最新情報を更新しておりますが、実際の運行状況と本ページの情報が異なる場合があります。あくまで目安としてご利用ください。</p>
+
+</div>
+
+<div class="borderBox mb10" style="background-color: #f0f0f0;">
+	<h4>【JR東日本 新潟支社 在来線列車運行情報提供システムについて】</h4>
+	<ul style="list-style: disc; padding-left: 20px;">
+	<li class="mt5">新潟支社内の在来線列車運行情報を提供しております。</li>
+	<li class="mt5">推奨するブラウザはInternet Explorer 8.0以上です。これ以外では一部正常にご覧いただけない場合がございますのでご了承ください。</li>
+	</ul>
+	<p class="mt5 ml20"><a href="http://traininfo.jrniigata.co.jp/routemap" target="_blank" class="blankLink" title="別ウィンドウが開きます">新潟支社 在来線列車運行情報</a></p>
+</div>
+
+
+</div>
+
+<div class="btm_con clearfix">
+<div class="ml02_area">
+<h3 title="スマートフォンアプリのご案内"><a href="http://www.jreast.co.jp/info/contact.html#train_info" class="over"><img src="/train_info/img/bl_tit01.png" width="339" height="42" alt="スマートフォンアプリのご案内"></a></h3>
+<div class="ml02_cont clearfix heightLine-group1">
+<ul>
+  <li><p class="mb5"><img src="/train_info/img/bl_t_img01.png" width="143" height="15" alt="プッシュ通知でお知らせ"></p>
+  <p title="スマートフォンアプリのご案内へ"><a href="http://www.jreast.co.jp/info/contact.html#train_info" class="over"><img src="/train_info/img/bl_img01.png" width="143" height="135" alt="プッシュ通知でお知らせ"></a></p>
+  </li>
+  <li class="last">
+  <p class="mb5"><img src="/train_info/img/bl_t_img02.png" width="143" height="15" alt="最新の運行情報を表示"></p>
+  <p title="スマートフォンアプリのご案内へ"><a href="http://www.jreast.co.jp/info/contact.html#train_info" class="over"><img src="/train_info/img/bl_img02.png" width="143" height="135" alt="最新の運行情報を表示"></a></p></li>
+</ul>
+</div>
+</div>
+
+<div class="mr02_area">
+<h3 title="携帯電話でご覧の方"><a href="http://www.jreast.co.jp/info/contact.html#train_info" class="over"><img src="/train_info/img/br_tit01.png" width="339" height="42" alt="携帯電話でご覧の方"></a></h3>
+<div class="mr02_cont clearfix heightLine-group1">
+
+<ul>
+  <li class="first"><img src="/train_info/img/br_img01.png" width="55" height="120" alt="EZweb"></li>
+  <li class="center"><img src="/train_info/img/br_img02.png" width="66" height="120" alt="imode"></li>
+  <li class="last"><img src="/train_info/img/br_img03.png" width="102" height="120" alt="Y! Keitai"></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div class="btm_tx">
+<p>※このページの情報を無断転載、複写または電磁媒体等に加工することを禁じます。</p>
+
+</div>
+</div>
+
+<!-- /#wrapper --></div>
+<!-- /#main --></div>
+<!-- /メインコンテンツ -->
+
+
+<!-- サイドバー -->
+<div id="side" class="sideCol">
+
+<script type="text/javascript" src="http://www.jreast.co.jp/railway/common/js/localnav_for_externalsite.js" charset="Shift_JIS"></script>
+
+<!-- /#side --></div>
+<!-- / サイドバー -->
+
+<p class="pagetop"><span><a href="#pagetop">ページの先頭へ</a></span></p>
+<!-- /#contents --></div>
+
+
+
+<!-- JR東日本共通フッター -->
+<script type="text/javascript" src="/general/js/footer_utf8.js"></script>
+<noscript>
+<div class="noscriptBox">
+<p>｜<a href="http://www.jreast.co.jp/">JR東日本トップ</a>｜<a href="http://www.jreast.co.jp/site/">サイトマップ</a>｜</p>
+</div>
+</noscript>
+<!-- /JR東日本共通フッター -->
+
+</body>
+</html>
