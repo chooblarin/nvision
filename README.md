@@ -1,21 +1,19 @@
 # Nvision
 
-**TODO: Add description**
+Because [越後線](https://ja.wikipedia.org/wiki/%E8%B6%8A%E5%BE%8C%E7%B7%9A) tends to be suspended...
 
-## Installation
+## Build
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `nvision` to your list of dependencies in `mix.exs`:
-
-```elixir
-def deps do
-  [
-    {:nvision, "~> 0.1.0"}
-  ]
-end
 ```
+> mix deps.get
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/nvision](https://hexdocs.pm/nvision).
+...
 
+> mix escript.build
+
+...
+
+> ./nvision
+Checking...
+平常運転
+```
