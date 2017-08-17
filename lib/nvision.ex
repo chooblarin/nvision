@@ -4,7 +4,7 @@ defmodule Nvision do
   """
 
   def check do
-    IO.puts "starting"
+    IO.puts "Checking..."
     ret = HTTPoison.get! "http://traininfo.jreast.co.jp/train_info/shinetsu.aspx"
     %HTTPoison.Response{body: body} = ret
     status = parse_status body
